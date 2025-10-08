@@ -284,7 +284,8 @@ section {
   justify-content: center;
   gap: 1.5rem;
 }
-.social-icon {
+/* انتخابگر را قوی‌تر کردیم تا اولویت بیشتری داشته باشد */
+.social-links .social-icon {
   color: var(--accent-color);
   font-size: 1.8rem;
   border: 2px solid var(--accent-color);
@@ -295,7 +296,8 @@ section {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: all 0.2s ease;
+  /* سرعت انیمیشن هاور را بسیار سریع‌تر کردیم */
+  transition: all 0.2s ease-in-out;
 }
 .social-icon:hover {
   background-color: var(--accent-color);
@@ -346,23 +348,6 @@ footer {
 .section-title.hidden,
 .contact-message.hidden {
   transform: translateY(50px);
-}
-
-/* تعریف تأخیر متوالی برای نمایش جذاب‌تر */
-.portfolio-item:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.portfolio-item:nth-child(3) {
-  transition-delay: 0.4s;
-}
-.social-icon:nth-child(2) {
-  transition-delay: 0.15s;
-}
-.social-icon:nth-child(3) {
-  transition-delay: 0.3s;
-}
-.social-icon:nth-child(4) {
-  transition-delay: 0.45s;
 }
 
 /* =================================
