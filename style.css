@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap");
+
 /* =================================
    ۱. متغیرها و استایل‌های پایه
    ================================= */
@@ -367,4 +369,55 @@ footer {
 .contact-box {
   max-width: 800px; /* محدود کردن عرض کادر تماس */
   margin: 0 auto; /* وسط‌چین کردن کادر */
+}
+
+/* =================================
+   ۱۰. استایل‌های ریسپانسیو (موبایل)
+   ================================= */
+@media (max-width: 768px) {
+  /* --- اصلاح هدر و منو --- */
+  nav {
+    flex-direction: column; /* چیدمان عمودی منو */
+    gap: 1rem;
+  }
+
+  /* --- اصلاح قاب اصلی و لوگوی SVG --- */
+  .hero-content {
+    min-width: 90%; /* حذف عرض ثابت و استفاده از درصد */
+    padding: 2rem; /* کاهش فاصله داخلی */
+  }
+
+  .hero-logo {
+    width: 90%; /* عرض لوگو به صورت درصدی از قاب */
+    max-width: 300px; /* تعیین یک حداکثر عرض معقول */
+  }
+
+  /* --- اصلاح اندازه فونت‌ها در موبایل --- */
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* --- اصلاح بخش درباره من --- */
+  .about-container {
+    gap: 2rem;
+    padding: 1.5rem; /* کاهش پدینگ قاب */
+  }
+
+  /* --- اصلاح آیکون‌های دفورمه تماس --- */
+  .contact-box {
+    padding: 2rem; /* کاهش پدینگ قاب */
+  }
+  .social-icon {
+    width: 50px; /* کوچک‌تر کردن آیکون‌ها */
+    height: 50px;
+    font-size: 1.5rem;
+    flex-shrink: 0; /* جلوگیری از فشرده و دفورمه شدن */
+  }
+  .social-links {
+    gap: 1rem; /* کاهش فاصله بین آیکون‌ها */
+  }
 }
