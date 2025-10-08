@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =================================
   const dynamicText = document.querySelector(".dynamic-text");
   if (dynamicText) {
-    const words = ["طراح گرافیک", "متخصص UI/UX", "توسعه‌دهنده فرانت‌اند"];
+    const words = ["طراح گرافیک", "متخصص UI/UX", "هویت بصری", "برندینگ"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
