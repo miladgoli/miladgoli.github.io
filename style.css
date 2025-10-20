@@ -790,16 +790,14 @@ section {
   direction: rtl;
 }
 
-/* === اصلاحیه: اینجا هم کد اصلاح شد === */
+/* === اصلاحیه: بازگشت به Cover === */
 .project-image {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   aspect-ratio: 16/10;
-  background-color: var(
-    --color-dark-secondary
-  ); /* بک‌گراند برای تصاویر عمودی */
+  /* background-color حذف شد */
   transition: all 0.4s ease;
 }
 
@@ -811,12 +809,12 @@ section {
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* از 'cover' به 'contain' تغییر کرد */
+  object-fit: cover; /* === از 'contain' به 'cover' بازگشت === */
   transition: transform 0.5s ease;
 }
 
 .project-image:hover img {
-  transform: scale(1.05); /* زوم هاور کمی کمتر شد تا عکس بیرون نزند */
+  transform: scale(1.08); /* === بازگشت به هاور اصلی === */
 }
 /* === پایان اصلاحیه === */
 
@@ -1204,6 +1202,7 @@ section {
 }
 
 /* Portfolio Image Container */
+/* === اصلاحیه: بازگشت به Cover === */
 .portfolio-image {
   position: absolute;
   top: 0;
@@ -1211,9 +1210,7 @@ section {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: var(
-    --color-dark-secondary
-  ); /* === اصلاحیه: افزودن بک‌گراند برای تصاویر غیر هم‌اندازه === */
+  /* background-color حذف شد */
 }
 
 .portfolio-image img {
@@ -1222,14 +1219,15 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* === اصلاحیه: رفع باگ کات شدن تصاویر (از cover به contain) === */
+  object-fit: cover; /* === از 'contain' به 'cover' بازگشت === */
   object-position: center;
   transition: transform 0.5s ease;
 }
 
 .portfolio-item:hover .portfolio-image img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* === بازگشت به هاور اصلی === */
 }
+/* === پایان اصلاحیه === */
 
 /* Portfolio Overlay */
 .portfolio-overlay {
@@ -2113,7 +2111,6 @@ footer {
   position: relative;
   transition: transform 0.3s ease;
   transform-origin: center center;
-  /* === اصلاحیه: برای اطمینان از پر شدن کادر === */
   width: 100%;
   height: 100%;
   display: flex;
@@ -2121,19 +2118,19 @@ footer {
   justify-content: center;
 }
 
-/* === اصلاحیه: این کد اصلی رفع باگ لایت‌باکس است === */
+/* === این کد لایت‌باکس است و باید 'contain' بماند === */
 #viewerImage {
   max-width: 100%;
   max-height: 100%;
-  width: 100%; /* از 'auto' به '100%' تغییر کرد */
-  height: 100%; /* از 'auto' به '100%' تغییر کرد */
-  object-fit: contain; /* این خط اضافه شد */
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* این کد برای لایت‌باکس صحیح است و دست نخورده */
   display: block;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
   user-select: none;
 }
-/* === پایان اصلاحیه === */
+/* === پایان کد لایت‌باکس === */
 
 /* Sidebar */
 .viewer-sidebar {
