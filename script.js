@@ -124,10 +124,13 @@ const mobileMenu = {
 
     // Close on Outside Click
     document.addEventListener("click", (e) => {
-      if (!this.menu.contains(e.target) && !this.toggle.contains(e.target)) {
-        this.toggle.classList.remove("active");
-        this.menu.classList.remove("active");
-        document.body.style.overflow = "auto";
+      /* === اصلاحیه: این کد فقط زمانی اجرا می‌شود که منو باز باشد === */
+      if (this.menu.classList.contains("active")) {
+        if (!this.menu.contains(e.target) && !this.toggle.contains(e.target)) {
+          this.toggle.classList.remove("active");
+          this.menu.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
       }
     });
   },
@@ -148,11 +151,11 @@ const particlesConfig = {
       interactivity: {
         events: {
           onHover: {
-            enable: true,
+            enable: false /* === اصلاحیه: از true به false تغییر کرد === */,
             mode: "grab",
           },
           onClick: {
-            enable: true,
+            enable: false /* === اصلاحیه: از true به false تغییر کرد === */,
             mode: "push",
           },
           resize: true,

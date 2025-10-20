@@ -471,6 +471,7 @@ nav {
   width: 100%;
   height: 100%;
   z-index: 0;
+  pointer-events: none; /* === اصلاحیه: غیرفعال کردن کلیک روی بک‌گراند === */
 }
 
 .hero-content {
@@ -789,31 +790,16 @@ section {
   direction: rtl;
 }
 
+/* === اصلاحیه: اینجا هم کد اصلاح شد === */
 .project-image {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   aspect-ratio: 16/10;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-image:hover img {
-  transform: scale(1.05);
-}
-
-.project-image {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 16/10;
+  background-color: var(
+    --color-dark-secondary
+  ); /* بک‌گراند برای تصاویر عمودی */
   transition: all 0.4s ease;
 }
 
@@ -825,13 +811,14 @@ section {
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* از 'cover' به 'contain' تغییر کرد */
   transition: transform 0.5s ease;
 }
 
 .project-image:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05); /* زوم هاور کمی کمتر شد تا عکس بیرون نزند */
 }
+/* === پایان اصلاحیه === */
 
 .project-info {
   display: flex;
@@ -1224,6 +1211,9 @@ section {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: var(
+    --color-dark-secondary
+  ); /* === اصلاحیه: افزودن بک‌گراند برای تصاویر غیر هم‌اندازه === */
 }
 
 .portfolio-image img {
@@ -1232,7 +1222,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* === اصلاحیه: رفع باگ کات شدن تصاویر (از cover به contain) === */
   object-position: center;
   transition: transform 0.5s ease;
 }
@@ -1856,6 +1846,16 @@ footer {
     justify-content: center;
   }
 
+  /* === اصلاحیه: کاهش پدینگ در موبایل === */
+  .about-container,
+  .contact-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 2rem 1.5rem; /* === اصلاحیه: کاهش پدینگ در موبایل === */
+  }
+
   /* Portfolio Grid */
   .portfolio-grid {
     grid-template-columns: 1fr;
@@ -1905,13 +1905,16 @@ footer {
     font-size: 2rem;
   }
 
+  /* === اصلاحیه: کاهش پدینگ در موبایل‌های کوچک === */
+  .hero-content,
   .about-container,
-  .contact-container {
-    padding: 2rem 1.5rem;
+  .contact-container,
+  .contact-form-wrapper {
+    padding: 2rem 1rem;
   }
 
-  .contact-form-wrapper {
-    padding: 2rem 1.5rem;
+  .featured-projects {
+    gap: 3rem; /* === اصلاحیه: کاهش فاصله در موبایل === */
   }
 }
 
@@ -2110,18 +2113,27 @@ footer {
   position: relative;
   transition: transform 0.3s ease;
   transform-origin: center center;
+  /* === اصلاحیه: برای اطمینان از پر شدن کادر === */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* === اصلاحیه: این کد اصلی رفع باگ لایت‌باکس است === */
 #viewerImage {
   max-width: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%; /* از 'auto' به '100%' تغییر کرد */
+  height: 100%; /* از 'auto' به '100%' تغییر کرد */
+  object-fit: contain; /* این خط اضافه شد */
   display: block;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
   user-select: none;
 }
+/* === پایان اصلاحیه === */
 
 /* Sidebar */
 .viewer-sidebar {
